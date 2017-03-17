@@ -18,15 +18,16 @@ namespace SimilarityToolkit.Evaluators
             AddInnerEvaluator(new Int64SimilarityEvaluator());
             AddInnerEvaluator(new DoubleSimilarityEvaluator());
 
-            foreach (var innerEvaluator in innerEvaluators)
-                AddInnerEvaluator(innerEvaluator);
+            if (innerEvaluators != null)
+                foreach (var innerEvaluator in innerEvaluators)
+                    AddInnerEvaluator(innerEvaluator);
         }
 
         public override double EvaluateDistance(T item1, T item2)
         {
             // TODO: Here is where the magic should happen:
-            // We use all the inner evaluators to evaluate each public property of item1 against the
-            // same on item2.
+            // We use all the inner evaluators to evaluate each public property of
+            // item1 against the same property on item2.
             throw new NotImplementedException();
         }
 
