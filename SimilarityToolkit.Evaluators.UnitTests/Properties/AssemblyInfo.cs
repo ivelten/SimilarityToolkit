@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SimilarityToolkit.Common")]
+[assembly: AssemblyTitle("SimilarityToolkit.Evaluators.UnitTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SimilarityToolkit.Common")]
+[assembly: AssemblyProduct("SimilarityToolkit.Evaluators.UnitTests")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e130cc8f-40ed-4d26-80f4-d8654de3b883")]
+[assembly: Guid("d722f1b5-ba2a-4574-be8d-9e47a69e466b")]
 
 // Version information for an assembly consists of the following four values:
 //
