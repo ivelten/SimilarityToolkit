@@ -45,6 +45,7 @@
     <Compile Include="Abstractions\SimilarityEvaluator.cs" />
     <Compile Include="DoubleSimilarityEvaluator.cs" />
     <Compile Include="Int64SimilarityEvaluator.cs" />
+    <Compile Include="ObjectEvaluator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringSimilarityEvaluator.cs" />
   </ItemGroup>
