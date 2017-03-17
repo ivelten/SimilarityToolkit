@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstractions\Generic\ISimilarityEvaluator.cs" />
     <Compile Include="Abstractions\ISimilarityEvaluator.cs" />
+    <Compile Include="CompositeSimilarityEvaluator.cs" />
     <Compile Include="DoubleSimilarityEvaluator.cs" />
     <Compile Include="Int64SimilarityEvaluator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

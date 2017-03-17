@@ -1,9 +1,9 @@
-﻿using SimilarityToolkit.Evaluators.Abstractions;
+﻿using SimilarityToolkit.Evaluators.Abstractions.Generic;
 using System;
 
 namespace SimilarityToolkit.Evaluators
 {
-    public class DoubleSimilarityEvaluator : ISimilarityEvaluator<double, double>, ISimilarityEvaluator<double?, double?>
+    public class DoubleSimilarityEvaluator : ISimilarityEvaluator<double>, ISimilarityEvaluator<double?>
     {
         public double EvaluateDistance(double? item1, double? item2)
         {

@@ -1,7 +1,11 @@
-﻿namespace SimilarityToolkit.Evaluators.Abstractions
+﻿using System;
+
+namespace SimilarityToolkit.Evaluators.Abstractions
 {
-    public interface ISimilarityEvaluator<T1, T2>
+    public interface ISimilarityEvaluator
     {
-        double EvaluateDistance(T1 item1, T2 item2);
+        double EvaluateDistance(object item1, object item2);
+
+        Type EvaluatedType { get; }
     }
 }
