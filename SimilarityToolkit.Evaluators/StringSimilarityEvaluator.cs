@@ -1,11 +1,11 @@
-﻿using SimilarityToolkit.Evaluators.Abstractions;
+﻿using SimilarityToolkit.Evaluators.Abstractions.Generic;
 using System;
 
 namespace SimilarityToolkit.Evaluators
 {
-    public class StringSimilarityEvaluator : ISimilarityEvaluator<string>
+    public class StringSimilarityEvaluator : SimilarityEvaluator<string>
     {
-        public double EvaluateDistance(string item1, string item2)
+        public override double EvaluateDistance(string item1, string item2)
         {
             if (string.IsNullOrEmpty(item1) && string.IsNullOrEmpty(item2))
             {
