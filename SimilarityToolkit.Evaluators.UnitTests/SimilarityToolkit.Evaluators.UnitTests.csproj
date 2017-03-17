@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Fixtures\AutoNSubstituteDataAttribute.cs" />
     <Compile Include="Fixtures\AutoNSubstituteInlineDataAttribute.cs" />
+    <Compile Include="Int64SimilarityEvaluatorTests.cs" />
     <Compile Include="StringSimilarityEvaluatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
