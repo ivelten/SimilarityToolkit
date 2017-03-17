@@ -3,7 +3,7 @@ using System;
 
 namespace SimilarityToolkit.Evaluators
 {
-    public class Int64SimilarityEvaluator : ISimilarityEvaluator<long, long>, ISimilarityEvaluator<long?, long?>
+    public class Int64SimilarityEvaluator : ISimilarityEvaluator<long>, ISimilarityEvaluator<long?>
     {
         public double EvaluateDistance(long? item1, long? item2)
         {
