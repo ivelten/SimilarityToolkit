@@ -5,7 +5,7 @@ namespace SimilarityToolkit.Evaluators
 {
     public class StringSimilarityEvaluator : SimilarityEvaluator<string>
     {
-        public override double EvaluateDistance(string item1, string item2)
+        public override decimal EvaluateDistance(string item1, string item2)
         {
             if (string.IsNullOrEmpty(item1) && string.IsNullOrEmpty(item2))
             {

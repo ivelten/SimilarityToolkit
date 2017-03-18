@@ -29,9 +29,9 @@ namespace SimilarityToolkit.Evaluators
             AddInnerEvaluator(new NullableDoubleSimilarityEvaluator());
         }
 
-        public override double EvaluateDistance(T item1, T item2)
+        public override decimal EvaluateDistance(T item1, T item2)
         {
-            var totalDistance = 0.0;
+            var totalDistance = 0.0M;
             var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
             foreach (var property in properties)

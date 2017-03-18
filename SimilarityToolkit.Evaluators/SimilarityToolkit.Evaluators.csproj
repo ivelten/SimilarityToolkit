@@ -43,10 +43,21 @@
   <ItemGroup>
     <Compile Include="Abstractions\Generic\SimilarityEvaluator.cs" />
     <Compile Include="Abstractions\SimilarityEvaluator.cs" />
+    <Compile Include="ByteSimilarityEvaluator.cs" />
+    <Compile Include="DecimalSimilarityEvaluator.cs" />
+    <Compile Include="DoubleSimilarityEvaluator.cs" />
+    <Compile Include="Int16SimilarityEvaluatr.cs" />
+    <Compile Include="Int32SimilarityEvaluator.cs" />
+    <Compile Include="NullableByteSimilarityEvaluator.cs" />
+    <Compile Include="NullableDecimalSimilarityEvaluator.cs" />
     <Compile Include="NullableDoubleSimilarityEvaluator.cs" />
+    <Compile Include="NullableInt16SimilarityEvaluator.cs" />
+    <Compile Include="NullableInt32SimilarityEvaluator.cs" />
     <Compile Include="NullableInt64SimilarityEvaluator.cs" />
+    <Compile Include="NullableSingleSimilarityEvaluator.cs" />
     <Compile Include="ObjectEvaluator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingleSimilarityEvaluator.cs" />
     <Compile Include="StringSimilarityEvaluator.cs" />
   </ItemGroup>
   <ItemGroup />
