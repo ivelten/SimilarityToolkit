@@ -3,6 +3,7 @@ using SimilarityToolkit.Evaluators.Abstractions.Generic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace SimilarityToolkit.Evaluators
 {
@@ -25,10 +26,23 @@ namespace SimilarityToolkit.Evaluators
 
         public override double EvaluateDistance(T item1, T item2)
         {
-            // TODO: Here is where the magic should happen:
-            // We use all the inner evaluators to evaluate each public property of
-            // item1 against the same property on item2.
-            throw new NotImplementedException();
+            var totalDistance = 0.0;
+            var properties = typeof(T).GetProperties(BindingFlags.Public);
+
+            foreach (var property in properties)
+            {
+                var evaluator = innerEvaluators[property.PropertyType];
+
+                if (evaluator == null)
+                    throw new Exception($"No inner evaluator was found for type {property.PropertyType}.");
+
+                var value1 = item1 != null ? property.GetValue(item1) : null;
+                var value2 = item2 != null ? property.GetValue(item2) : null;
+
+                totalDistance += evaluator.EvaluateDistance(value1, value2);
+            }
+
+            return totalDistance;
         }
 
         public void AddInnerEvaluator(SimilarityEvaluator evaluator)
