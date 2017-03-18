@@ -9,9 +9,7 @@ namespace SimilarityToolkit.Evaluators
 {
     public static class EvaluatorContainer
     {
-        private static readonly ReadOnlyDictionary<Type, SimilarityEvaluatorBase> primitiveEvaluators =
-            new ReadOnlyDictionary<Type, SimilarityEvaluatorBase>(
-                GetPrimitiveEvaluators().ToDictionary(k => k.EvaluatedType, v => v));
+        private static readonly SimilarityEvaluatorDictionary primitiveEvaluators = SimilarityEvaluatorDictionary.From(GetPrimitiveEvaluators());
 
         public static IEnumerable<SimilarityEvaluatorBase> PrimitiveEvaluators
         {
