@@ -4,8 +4,8 @@ namespace SimilarityToolkit.Evaluators.Abstractions
 {
     public abstract class SimilarityEvaluator
     {
-        public abstract double EvaluateDistance(object item1, object item2);
+        internal abstract double EvaluateDistance(object item1, object item2);
 
-        public abstract Type EvaluatedType { get; }
+        internal abstract Type EvaluatedType { get; }
     }
 }

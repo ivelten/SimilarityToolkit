@@ -6,7 +6,7 @@ namespace SimilarityToolkit.Evaluators.Abstractions.Generic
     {
         public abstract double EvaluateDistance(T item1, T item2);
 
-        public override double EvaluateDistance(object item1, object item2)
+        internal override double EvaluateDistance(object item1, object item2)
         {
             if (!(item1 is T))
                 throw new InvalidCastException($"{nameof(item1)} must be of type {typeof(T)}.");
@@ -17,7 +17,7 @@ namespace SimilarityToolkit.Evaluators.Abstractions.Generic
             return EvaluateDistance((T)item1, (T)item2);
         }
 
-        public override Type EvaluatedType
+        internal override Type EvaluatedType
         {
             get { return typeof(T); }
         }
