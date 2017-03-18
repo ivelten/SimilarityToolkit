@@ -25,8 +25,8 @@ namespace SimilarityToolkit.Evaluators
         private void AddDefaultInnerEvaluators()
         {
             AddInnerEvaluator(new StringSimilarityEvaluator());
-            AddInnerEvaluator(new Int64SimilarityEvaluator());
-            AddInnerEvaluator(new DoubleSimilarityEvaluator());
+            AddInnerEvaluator(new NullableInt64SimilarityEvaluator());
+            AddInnerEvaluator(new NullableDoubleSimilarityEvaluator());
         }
 
         public override double EvaluateDistance(T item1, T item2)
