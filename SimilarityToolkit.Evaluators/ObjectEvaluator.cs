@@ -34,6 +34,8 @@ namespace SimilarityToolkit.Evaluators
             AddInnerEvaluator(new NullableDoubleSimilarityEvaluator());
             AddInnerEvaluator(new DecimalSimilarityEvaluator());
             AddInnerEvaluator(new NullableDecimalSimilarityEvaluator());
+            AddInnerEvaluator(new DateTimeSimilarityEvaluator());
+            AddInnerEvaluator(new NullableDateTimeSimilarityEvaluator());
         }
 
         public override decimal EvaluateDistance(T item1, T item2)

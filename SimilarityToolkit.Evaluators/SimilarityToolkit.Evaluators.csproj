@@ -44,12 +44,14 @@
     <Compile Include="Abstractions\Generic\SimilarityEvaluator.cs" />
     <Compile Include="Abstractions\SimilarityEvaluator.cs" />
     <Compile Include="ByteSimilarityEvaluator.cs" />
+    <Compile Include="DateTimeSimilarityEvaluator.cs" />
     <Compile Include="DecimalSimilarityEvaluator.cs" />
     <Compile Include="DoubleSimilarityEvaluator.cs" />
     <Compile Include="Int16SimilarityEvaluator.cs" />
     <Compile Include="Int32SimilarityEvaluator.cs" />
     <Compile Include="Int64SimilarityEvaluator.cs" />
     <Compile Include="NullableByteSimilarityEvaluator.cs" />
+    <Compile Include="NullableDateTimeSimilarityEvaluator.cs" />
     <Compile Include="NullableDecimalSimilarityEvaluator.cs" />
     <Compile Include="NullableDoubleSimilarityEvaluator.cs" />
     <Compile Include="NullableInt16SimilarityEvaluator.cs" />
