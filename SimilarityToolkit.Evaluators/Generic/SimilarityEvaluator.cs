@@ -13,7 +13,7 @@ namespace SimilarityToolkit.Evaluators.Generic
 
         public SimilarityEvaluator()
         {
-            AddInnerEvaluators(EvaluatorContainer.PrimitiveEvaluators);
+            AddInnerEvaluators(SimilarityEvaluatorContainer.PrimitiveEvaluators);
         }
 
         public IEnumerable<SimilarityEvaluatorBase> InnerEvaluators => innerEvaluators.Values.AsEnumerable();

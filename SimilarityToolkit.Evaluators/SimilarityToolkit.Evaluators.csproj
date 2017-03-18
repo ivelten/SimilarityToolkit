@@ -49,7 +49,7 @@
     <Compile Include="SimilarityEvaluationResult.cs" />
     <Compile Include="DoubleSimilarityEvaluator.cs" />
     <Compile Include="Generic\EnumerableSimilarityEvaluator.cs" />
-    <Compile Include="EvaluatorContainer.cs" />
+    <Compile Include="SimilarityEvaluatorContainer.cs" />
     <Compile Include="Int16SimilarityEvaluator.cs" />
     <Compile Include="Int32SimilarityEvaluator.cs" />
     <Compile Include="Int64SimilarityEvaluator.cs" />

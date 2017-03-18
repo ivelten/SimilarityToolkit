@@ -8,7 +8,7 @@ namespace SimilarityToolkit.Evaluators.UnitTests
         [Fact]
         public void Should_Give_Primitive_Evaluator()
         {
-            var evaluator = EvaluatorContainer.GetPrimitiveEvaluator<int>();
+            var evaluator = SimilarityEvaluatorContainer.GetPrimitiveEvaluator<int>();
 
             evaluator.Should().NotBeNull();
             evaluator.Should().BeOfType(typeof(Int32SimilarityEvaluator));
@@ -17,7 +17,7 @@ namespace SimilarityToolkit.Evaluators.UnitTests
         [Fact]
         public void Should_Return_Null_For_Non_Existent_Evaluator()
         {
-            var evaluator = EvaluatorContainer.GetPrimitiveEvaluator<object>();
+            var evaluator = SimilarityEvaluatorContainer.GetPrimitiveEvaluator<object>();
 
             evaluator.Should().BeNull();
         }

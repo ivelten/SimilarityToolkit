@@ -8,7 +8,7 @@ namespace SimilarityToolkit.Evaluators.Generic
 {
     public class EnumerableSimilarityEvaluator<T> : SimilarityEvaluatorBase<IEnumerable<T>>
     {
-        private readonly SimilarityEvaluatorBase<T> innerEvaluator = EvaluatorContainer.GetPrimitiveEvaluator<T>();
+        private readonly SimilarityEvaluatorBase<T> innerEvaluator = SimilarityEvaluatorContainer.GetPrimitiveEvaluator<T>();
 
         public override decimal EvaluateDistance(IEnumerable<T> item1, IEnumerable<T> item2)
         {

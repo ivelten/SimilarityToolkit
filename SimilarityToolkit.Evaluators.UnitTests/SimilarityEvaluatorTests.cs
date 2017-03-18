@@ -75,7 +75,7 @@ namespace SimilarityToolkit.Evaluators.UnitTests
         public void Should_Have_Primitive_Evaluators_When_Created(
             SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
         {
-            evaluator.InnerEvaluators.ShouldBeEquivalentTo(EvaluatorContainer.PrimitiveEvaluators);
+            evaluator.InnerEvaluators.ShouldBeEquivalentTo(SimilarityEvaluatorContainer.PrimitiveEvaluators);
         }
 
         [Theory, AutoNSubstituteData]
