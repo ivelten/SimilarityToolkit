@@ -15,19 +15,24 @@ namespace SimilarityToolkit.Evaluators
         {
             this.innerEvaluators = new Dictionary<Type, SimilarityEvaluator>();
 
-            AddInnerEvaluator(new StringSimilarityEvaluator());
-            AddInnerEvaluator(new Int64SimilarityEvaluator());
-            AddInnerEvaluator(new DoubleSimilarityEvaluator());
+            AddDefaultInnerEvaluators();
 
             if (innerEvaluators != null)
                 foreach (var innerEvaluator in innerEvaluators)
                     AddInnerEvaluator(innerEvaluator);
         }
 
+        private void AddDefaultInnerEvaluators()
+        {
+            AddInnerEvaluator(new StringSimilarityEvaluator());
+            AddInnerEvaluator(new Int64SimilarityEvaluator());
+            AddInnerEvaluator(new DoubleSimilarityEvaluator());
+        }
+
         public override double EvaluateDistance(T item1, T item2)
         {
             var totalDistance = 0.0;
-            var properties = typeof(T).GetProperties(BindingFlags.Public);
+            var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
             foreach (var property in properties)
             {
@@ -43,6 +48,14 @@ namespace SimilarityToolkit.Evaluators
             }
 
             return totalDistance;
+        }
+
+        private SimilarityEvaluator GetEvaluator(Type type)
+        {
+            if (!innerEvaluators.ContainsKey(type))
+                return null;
+
+            return innerEvaluators[type];
         }
 
         public void AddInnerEvaluator(SimilarityEvaluator evaluator)
