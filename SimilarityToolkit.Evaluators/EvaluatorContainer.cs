@@ -1,9 +1,6 @@
 ﻿using SimilarityToolkit.Evaluators.Abstractions;
 using SimilarityToolkit.Evaluators.Abstractions.Generic;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace SimilarityToolkit.Evaluators
 {
