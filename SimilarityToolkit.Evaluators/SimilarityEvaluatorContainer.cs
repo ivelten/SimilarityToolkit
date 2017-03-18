@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace SimilarityToolkit.Evaluators
 {
-    public static class EvaluatorContainer
+    public static class SimilarityEvaluatorContainer
     {
         private static readonly SimilarityEvaluatorDictionary primitiveEvaluators = SimilarityEvaluatorDictionary.From(GetPrimitiveEvaluators());
 
