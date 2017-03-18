@@ -41,14 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstractions\Generic\SimilarityEvaluator.cs" />
-    <Compile Include="Abstractions\SimilarityEvaluator.cs" />
+    <Compile Include="Abstractions\Generic\SimilarityEvaluatorBase.cs" />
     <Compile Include="ByteSimilarityEvaluator.cs" />
-    <Compile Include="CompositeSimilarityEvaluator.cs" />
     <Compile Include="DateTimeSimilarityEvaluator.cs" />
     <Compile Include="DecimalSimilarityEvaluator.cs" />
+    <Compile Include="Abstractions\SimilarityEvaluatorBase.cs" />
+    <Compile Include="SimilarityEvaluationResult.cs" />
     <Compile Include="DoubleSimilarityEvaluator.cs" />
-    <Compile Include="EnumerableSimilarityEvaluator.cs" />
+    <Compile Include="Generic\EnumerableSimilarityEvaluator.cs" />
     <Compile Include="EvaluatorContainer.cs" />
     <Compile Include="Int16SimilarityEvaluator.cs" />
     <Compile Include="Int32SimilarityEvaluator.cs" />
@@ -61,12 +61,11 @@
     <Compile Include="NullableInt32SimilarityEvaluator.cs" />
     <Compile Include="NullableInt64SimilarityEvaluator.cs" />
     <Compile Include="NullableSingleSimilarityEvaluator.cs" />
-    <Compile Include="ObjectEvaluator.cs" />
+    <Compile Include="Generic\SimilarityEvaluator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleSimilarityEvaluator.cs" />
     <Compile Include="StringSimilarityEvaluator.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

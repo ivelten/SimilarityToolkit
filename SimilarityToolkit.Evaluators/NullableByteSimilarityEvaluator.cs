@@ -3,7 +3,7 @@ using System;
 
 namespace SimilarityToolkit.Evaluators
 {
-    public class NullableByteSimilarityEvaluator : SimilarityEvaluator<byte?>
+    public class NullableByteSimilarityEvaluator : SimilarityEvaluatorBase<byte?>
     {
         public override decimal EvaluateDistance(byte? item1, byte? item2)
         {

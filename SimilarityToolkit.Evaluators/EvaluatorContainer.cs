@@ -9,27 +9,26 @@ namespace SimilarityToolkit.Evaluators
 {
     public static class EvaluatorContainer
     {
-        private static readonly ReadOnlyDictionary<Type, SimilarityEvaluator> primitiveEvaluators =
-            new ReadOnlyDictionary<Type, SimilarityEvaluator>(
-                GetPrimitiveEvaluators()
-                    .ToDictionary(k => k.EvaluatedType, v => v));
+        private static readonly ReadOnlyDictionary<Type, SimilarityEvaluatorBase> primitiveEvaluators =
+            new ReadOnlyDictionary<Type, SimilarityEvaluatorBase>(
+                GetPrimitiveEvaluators().ToDictionary(k => k.EvaluatedType, v => v));
 
-        public static IEnumerable<SimilarityEvaluator> PrimitiveEvaluators
+        public static IEnumerable<SimilarityEvaluatorBase> PrimitiveEvaluators
         {
             get { return primitiveEvaluators.Values; }
         }
 
-        public static SimilarityEvaluator<T> GetPrimitiveEvaluator<T>()
+        public static SimilarityEvaluatorBase<T> GetPrimitiveEvaluator<T>()
         {
             var evaluatedType = typeof(T);
 
             if (!primitiveEvaluators.ContainsKey(evaluatedType))
                 return null;
 
-            return (SimilarityEvaluator<T>)primitiveEvaluators[evaluatedType];
+            return (SimilarityEvaluatorBase<T>)primitiveEvaluators[evaluatedType];
         }
 
-        private static IEnumerable<SimilarityEvaluator> GetPrimitiveEvaluators()
+        private static IEnumerable<SimilarityEvaluatorBase> GetPrimitiveEvaluators()
         {
             yield return new StringSimilarityEvaluator();
             yield return new ByteSimilarityEvaluator();

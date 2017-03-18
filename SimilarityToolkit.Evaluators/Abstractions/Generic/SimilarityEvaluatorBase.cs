@@ -2,7 +2,7 @@
 
 namespace SimilarityToolkit.Evaluators.Abstractions.Generic
 {
-    public abstract class SimilarityEvaluator<T> : SimilarityEvaluator
+    public abstract class SimilarityEvaluatorBase<T> : SimilarityEvaluatorBase
     {
         public abstract decimal EvaluateDistance(T item1, T item2);
 

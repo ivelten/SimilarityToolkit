@@ -3,7 +3,7 @@ using System;
 
 namespace SimilarityToolkit.Evaluators
 {
-    public class NullableDateTimeSimilarityEvaluator : SimilarityEvaluator<DateTime?>
+    public class NullableDateTimeSimilarityEvaluator : SimilarityEvaluatorBase<DateTime?>
     {
         public override decimal EvaluateDistance(DateTime? item1, DateTime? item2)
         {

@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using SimilarityToolkit.Evaluators.Abstractions;
+using SimilarityToolkit.Evaluators.Generic;
 using SimilarityToolkit.Evaluators.UnitTests.Fixtures;
 using SimilarityToolkit.Evaluators.UnitTests.Helpers;
 using System;
@@ -7,13 +8,13 @@ using Xunit;
 
 namespace SimilarityToolkit.Evaluators.UnitTests
 {
-    public class ObjectEvaluatorTests
+    public class SimilarityEvaluatorTests
     {
         [Theory, AutoNSubstituteData]
         public void Should_Evaluate_Difference_Between_Two_Objects(
             PrimitiveEvaluableObject item1,
             PrimitiveEvaluableObject item2,
-            ObjectEvaluator<PrimitiveEvaluableObject> evaluator)
+            SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
         {
             var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
             var actualDistance = evaluator.EvaluateDistance(item1, item2);
@@ -23,8 +24,8 @@ namespace SimilarityToolkit.Evaluators.UnitTests
 
         [Theory, AutoNSubstituteData]
         public void Should_Evaluate_Difference_Between_Two_Objects_When_Left_One_Has_Null_Values(
-        PrimitiveEvaluableObject item2,
-        ObjectEvaluator<PrimitiveEvaluableObject> evaluator)
+            PrimitiveEvaluableObject item2,
+            SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
         {
             var item1 = new PrimitiveEvaluableObject();
 
@@ -37,7 +38,7 @@ namespace SimilarityToolkit.Evaluators.UnitTests
         [Theory, AutoNSubstituteData]
         public void Should_Evaluate_Difference_Between_Two_Objects_When_Right_One_Has_Null_Values(
             PrimitiveEvaluableObject item1,
-            ObjectEvaluator<PrimitiveEvaluableObject> evaluator)
+            SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
         {
             var item2 = new PrimitiveEvaluableObject();
 
@@ -51,7 +52,7 @@ namespace SimilarityToolkit.Evaluators.UnitTests
         public void When_Evaluating_Object_With_Unknown_Type_Should_Throw_Exception(
             UnknownTypeEvaluableObject item1,
             UnknownTypeEvaluableObject item2,
-            ObjectEvaluator<UnknownTypeEvaluableObject> evaluator)
+            SimilarityEvaluator<UnknownTypeEvaluableObject> evaluator)
         {
             var exception = Assert.Throws<Exception>(() => evaluator.EvaluateDistance(item1, item2));
 
@@ -62,7 +63,7 @@ namespace SimilarityToolkit.Evaluators.UnitTests
         public void When_Evaluating_Object_With_Enumerables_Should_Calculate_Distance(
             PrimitiveEnumerableEvaluableObject item1,
             PrimitiveEnumerableEvaluableObject item2,
-            ObjectEvaluator<PrimitiveEnumerableEvaluableObject> evaluator)
+            SimilarityEvaluator<PrimitiveEnumerableEvaluableObject> evaluator)
         {
             var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
             var actualDistance = evaluator.EvaluateDistance(item1, item2);
@@ -72,14 +73,14 @@ namespace SimilarityToolkit.Evaluators.UnitTests
 
         [Theory, AutoNSubstituteData]
         public void Should_Have_Primitive_Evaluators_When_Created(
-            ObjectEvaluator<PrimitiveEvaluableObject> evaluator)
+            SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
         {
             evaluator.InnerEvaluators.ShouldBeEquivalentTo(EvaluatorContainer.PrimitiveEvaluators);
         }
 
         [Theory, AutoNSubstituteData]
         public void Should_Override_Already_Added_InnerEvaluator(
-            ObjectEvaluator<PrimitiveEvaluableObject> evaluator)
+            SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
         {
             var innerEvaluator = new Int32SimilarityEvaluator();
 
@@ -90,9 +91,9 @@ namespace SimilarityToolkit.Evaluators.UnitTests
 
         [Theory, AutoNSubstituteData]
         public void Should_Override_Already_Added_InnerEvaluators(
-            ObjectEvaluator<PrimitiveEvaluableObject> evaluator)
+            SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
         {
-            var innerEvaluators = new SimilarityEvaluator[]
+            var innerEvaluators = new SimilarityEvaluatorBase[]
             {
                 new Int32SimilarityEvaluator(),
                 new Int64SimilarityEvaluator()
