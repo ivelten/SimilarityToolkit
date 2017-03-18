@@ -47,6 +47,7 @@
     <Compile Include="DateTimeSimilarityEvaluator.cs" />
     <Compile Include="DecimalSimilarityEvaluator.cs" />
     <Compile Include="DoubleSimilarityEvaluator.cs" />
+    <Compile Include="EvaluatorContainer.cs" />
     <Compile Include="Int16SimilarityEvaluator.cs" />
     <Compile Include="Int32SimilarityEvaluator.cs" />
     <Compile Include="Int64SimilarityEvaluator.cs" />

@@ -1,4 +1,6 @@
-﻿namespace SimilarityToolkit.Evaluators.UnitTests.Helpers
+﻿using System;
+
+namespace SimilarityToolkit.Evaluators.UnitTests.Helpers
 {
     public class PrimitivesEvaluableObject
     {
@@ -27,5 +29,9 @@
         public double DoubleProperty { get; set; }
 
         public double? NullableDoubleProperty { get; set; }
+
+        public DateTime DateTimeProperty { get; set; }
+
+        public DateTime? NullableDateTimeProperty { get; set; }
     }
 }

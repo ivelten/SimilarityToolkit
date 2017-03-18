@@ -14,28 +14,7 @@ namespace SimilarityToolkit.Evaluators
         public ObjectEvaluator()
         {
             innerEvaluators = new Dictionary<Type, SimilarityEvaluator>();
-            AddPrimitivetInnerEvaluators();
-        }
-
-        private void AddPrimitivetInnerEvaluators()
-        {
-            AddInnerEvaluator(new StringSimilarityEvaluator());
-            AddInnerEvaluator(new ByteSimilarityEvaluator());
-            AddInnerEvaluator(new NullableByteSimilarityEvaluator());
-            AddInnerEvaluator(new Int16SimilarityEvaluator());
-            AddInnerEvaluator(new NullableInt16SimilarityEvaluator());
-            AddInnerEvaluator(new Int32SimilarityEvaluator());
-            AddInnerEvaluator(new NullableInt32SimilarityEvaluator());
-            AddInnerEvaluator(new Int64SimilarityEvaluator());
-            AddInnerEvaluator(new NullableInt64SimilarityEvaluator());
-            AddInnerEvaluator(new SingleSimilarityEvaluator());
-            AddInnerEvaluator(new NullableSingleSimilarityEvaluator());
-            AddInnerEvaluator(new DoubleSimilarityEvaluator());
-            AddInnerEvaluator(new NullableDoubleSimilarityEvaluator());
-            AddInnerEvaluator(new DecimalSimilarityEvaluator());
-            AddInnerEvaluator(new NullableDecimalSimilarityEvaluator());
-            AddInnerEvaluator(new DateTimeSimilarityEvaluator());
-            AddInnerEvaluator(new NullableDateTimeSimilarityEvaluator());
+            AddInnerEvaluators(EvaluatorContainer.PrimitiveEvaluators);
         }
 
         public override decimal EvaluateDistance(T item1, T item2)
@@ -45,7 +24,7 @@ namespace SimilarityToolkit.Evaluators
 
             foreach (var property in properties)
             {
-                var evaluator = innerEvaluators[property.PropertyType];
+                var evaluator = GetEvaluator(property.PropertyType);
 
                 if (evaluator == null)
                     throw new Exception($"No inner evaluator was found for type {property.PropertyType}.");
@@ -70,6 +49,12 @@ namespace SimilarityToolkit.Evaluators
         public void AddInnerEvaluator(SimilarityEvaluator evaluator)
         {
             innerEvaluators.Add(evaluator.EvaluatedType, evaluator);
+        }
+
+        public void AddInnerEvaluators(IEnumerable<SimilarityEvaluator> evaluators)
+        {
+            foreach (var evaluator in evaluators)
+                AddInnerEvaluator(evaluator);
         }
 
         public IEnumerable<SimilarityEvaluator> InnerEvaluators => innerEvaluators.Values.AsEnumerable();
