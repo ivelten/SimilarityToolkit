@@ -27,6 +27,7 @@ namespace SimilarityToolkit.Evaluators.UnitTests
         ObjectEvaluator<PrimitiveEvaluableObject> evaluator)
         {
             var item1 = new PrimitiveEvaluableObject();
+
             var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
             var actualDistance = evaluator.EvaluateDistance(item1, item2);
 
@@ -39,6 +40,7 @@ namespace SimilarityToolkit.Evaluators.UnitTests
             ObjectEvaluator<PrimitiveEvaluableObject> evaluator)
         {
             var item2 = new PrimitiveEvaluableObject();
+
             var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
             var actualDistance = evaluator.EvaluateDistance(item1, item2);
 
@@ -54,6 +56,18 @@ namespace SimilarityToolkit.Evaluators.UnitTests
             var exception = Assert.Throws<Exception>(() => evaluator.EvaluateDistance(item1, item2));
 
             exception.Message.Should().Be($"No inner evaluator was found for type System.Object.");
+        }
+
+        [Theory, AutoNSubstituteData]
+        public void When_Evaluating_Object_With_Enumerables_Should_Calculate_Distance(
+            PrimitiveEnumerableEvaluableObject item1,
+            PrimitiveEnumerableEvaluableObject item2,
+            ObjectEvaluator<PrimitiveEnumerableEvaluableObject> evaluator)
+        {
+            var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
+            var actualDistance = evaluator.EvaluateDistance(item1, item2);
+
+            actualDistance.Should().Be(expectedDistance);
         }
 
         [Theory, AutoNSubstituteData]
