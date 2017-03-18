@@ -6,7 +6,7 @@ using SimilarityToolkit.Evaluators.UnitTests.Helpers;
 using System;
 using Xunit;
 
-namespace SimilarityToolkit.Evaluators.UnitTests
+namespace SimilarityToolkit.Evaluators.UnitTests.Generic
 {
     public class SimilarityEvaluatorTests
     {
