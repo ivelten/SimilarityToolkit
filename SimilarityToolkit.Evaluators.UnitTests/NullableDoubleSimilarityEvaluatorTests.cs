@@ -19,8 +19,10 @@ namespace SimilarityToolkit.Evaluators.UnitTests
         [AutoNSubstituteInlineData(null, 0.0)]
         public void Similarity_Test_02(double? item1, double? item2, NullableDoubleSimilarityEvaluator evaluator)
         {
-            var expected = Math.Abs((decimal)(item1 ?? 0) - (decimal)(item2 ?? 0));
-            evaluator.EvaluateDistance(item1, item2).Should().Be(expected);
+            var expectedDistance = Math.Abs((decimal)(item1 ?? 0) - (decimal)(item2 ?? 0));
+            var actualDistance = evaluator.EvaluateDistance(item1, item2);
+
+            actualDistance.Should().Be(expectedDistance);
         }
     }
 }
