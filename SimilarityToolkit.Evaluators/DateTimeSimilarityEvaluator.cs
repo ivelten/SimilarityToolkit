@@ -8,9 +8,9 @@ namespace SimilarityToolkit.Evaluators
         public override decimal EvaluateDistance(DateTime item1, DateTime item2)
         {
             if (item1.Date == item1 && item2.Date == item2)
-                return Math.Abs((item1 - item2).Days);
+                return Math.Abs((decimal)(item1 - item2).TotalDays);
 
-            return Math.Abs((item1 - item2).Seconds);
+            return Math.Abs((decimal)(item1 - item2).TotalSeconds);
         }
     }
 }

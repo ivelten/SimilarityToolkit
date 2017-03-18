@@ -5,7 +5,7 @@ using Xunit;
 
 namespace SimilarityToolkit.Evaluators.UnitTests
 {
-    public class NullableDoubleSimilarityEvaluatorTests
+    public class NullableDecimalSimilarityEvaluatorTests
     {
         [Theory]
         [AutoNSubstituteInlineData(0.0, 0.0)]
@@ -17,10 +17,13 @@ namespace SimilarityToolkit.Evaluators.UnitTests
         [AutoNSubstituteInlineData(-67.98798, null)]
         [AutoNSubstituteInlineData(0.0, null)]
         [AutoNSubstituteInlineData(null, 0.0)]
-        public void Similarity_Test(double? item1, double? item2, NullableDoubleSimilarityEvaluator evaluator)
+        public void Similarity_Test(double? item1, double? item2, NullableDecimalSimilarityEvaluator evaluator)
         {
-            var expectedDistance = Math.Abs((decimal)(item1 ?? 0) - (decimal)(item2 ?? 0));
-            var actualDistance = evaluator.EvaluateDistance(item1, item2);
+            var castedItem1 = (decimal?)item1;
+            var castedItem2 = (decimal?)item2;
+
+            var expectedDistance = Math.Abs((castedItem1 ?? 0) - (castedItem2 ?? 0));
+            var actualDistance = evaluator.EvaluateDistance(castedItem1, castedItem2);
 
             actualDistance.Should().Be(expectedDistance);
         }

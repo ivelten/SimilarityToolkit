@@ -8,12 +8,6 @@ namespace SimilarityToolkit.Evaluators.Abstractions.Generic
 
         internal override decimal EvaluateDistance(object item1, object item2)
         {
-            if (!(item1 is T))
-                throw new InvalidCastException($"{nameof(item1)} must be of type {typeof(T)}.");
-
-            if (!(item2 is T))
-                throw new InvalidCastException($"{nameof(item2)} must be of type {typeof(T)}.");
-
             return EvaluateDistance((T)item1, (T)item2);
         }
 

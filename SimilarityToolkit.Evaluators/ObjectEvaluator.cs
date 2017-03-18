@@ -19,20 +19,13 @@ namespace SimilarityToolkit.Evaluators
 
         public override decimal EvaluateDistance(T item1, T item2)
         {
-            var totalDistance = 0M;
+            var totalDistance = 0m;
             var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
             foreach (var property in properties)
             {
                 var evaluator = GetEvaluator(property.PropertyType);
-
-                if (evaluator == null)
-                    throw new Exception($"No inner evaluator was found for type {property.PropertyType}.");
-
-                var value1 = item1 != null ? property.GetValue(item1) : null;
-                var value2 = item2 != null ? property.GetValue(item2) : null;
-
-                totalDistance += evaluator.EvaluateDistance(value1, value2);
+                totalDistance += evaluator.EvaluateDistance(property.GetValue(item1), property.GetValue(item2));
             }
 
             return totalDistance;
@@ -41,13 +34,16 @@ namespace SimilarityToolkit.Evaluators
         private SimilarityEvaluator GetEvaluator(Type type)
         {
             if (!innerEvaluators.ContainsKey(type))
-                return null;
+                throw new Exception($"No inner evaluator was found for type {type}.");
 
             return innerEvaluators[type];
         }
 
         public void AddInnerEvaluator(SimilarityEvaluator evaluator)
         {
+            if (innerEvaluators.ContainsKey(evaluator.EvaluatedType))
+                innerEvaluators.Remove(evaluator.EvaluatedType);
+
             innerEvaluators.Add(evaluator.EvaluatedType, evaluator);
         }
 

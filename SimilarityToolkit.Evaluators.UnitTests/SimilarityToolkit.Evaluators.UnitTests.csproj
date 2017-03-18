@@ -84,12 +84,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ByteSimilarityEvaluatorTests.cs" />
+    <Compile Include="DateTimeSimilarityEvaluatorTests.cs" />
+    <Compile Include="DecimalSimilarityEvaluatorTests.cs" />
+    <Compile Include="DoubleSimilarityEvaluatorTests.cs" />
+    <Compile Include="EvaluatorContainerTests.cs" />
+    <Compile Include="Helpers\DistanceEvaluationHelper.cs" />
+    <Compile Include="Helpers\UnknownTypeEvaluableObject.cs" />
+    <Compile Include="Int32SimilarityEvaluatorTests.cs" />
+    <Compile Include="Int64SimilarityEvaluatorTests.cs" />
+    <Compile Include="NullableByteSimilarityEvaluatorTests.cs" />
+    <Compile Include="NullableDateTimeSimilarityEvaluatorTests.cs" />
+    <Compile Include="NullableDecimalSimilarityEvaluatorTests.cs" />
     <Compile Include="NullableDoubleSimilarityEvaluatorTests.cs" />
     <Compile Include="Fixtures\AutoNSubstituteDataAttribute.cs" />
     <Compile Include="Fixtures\AutoNSubstituteInlineDataAttribute.cs" />
-    <Compile Include="Helpers\PrimitivesEvaluableObject.cs" />
+    <Compile Include="Helpers\PrimitiveEvaluableObject.cs" />
+    <Compile Include="NullableInt16SimilarityEvaluatorTests.cs" />
+    <Compile Include="NullableInt32SimilarityEvaluatorTests.cs" />
     <Compile Include="NullableInt64SimilarityEvaluatorTests.cs" />
+    <Compile Include="NullableSingleSimilarityEvaluatorTests.cs" />
     <Compile Include="ObjectEvaluatorTests.cs" />
+    <Compile Include="Int16SimilarityEvaluatorTests.cs" />
+    <Compile Include="SingleSimilarityEvaluatorTests.cs" />
     <Compile Include="StringSimilarityEvaluatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
