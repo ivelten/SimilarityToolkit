@@ -31,6 +31,9 @@ namespace SimilarityToolkit.Evaluators.Generic
                 if (typeof(IEnumerable).IsAssignableFrom(type))
                     return GetEnumerableEvaluatorForType(type);
 
+                if (type == typeof(T))
+                    return this;
+
                 throw new Exception($"No inner evaluator was found for type {type}.");
             }
 

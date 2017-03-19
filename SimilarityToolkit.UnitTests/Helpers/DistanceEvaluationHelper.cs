@@ -32,14 +32,5 @@ namespace SimilarityToolkit.Evaluators.UnitTests.Helpers
 
             return distances.Sum();
         }
-
-        internal static decimal EvaluateDistance(PrimitiveListEvaluable item1, PrimitiveListEvaluable item2)
-        {
-            var distances = new List<decimal>();
-
-            // TODO: calculate distance
-
-            return distances.Sum();
-        }
     }
 }

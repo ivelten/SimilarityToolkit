@@ -1,7 +1,8 @@
 ﻿using FluentAssertions;
+using SimilarityToolkit.Evaluators;
 using Xunit;
 
-namespace SimilarityToolkit.Evaluators.UnitTests
+namespace SimilarityToolkit.UnitTests
 {
     public class EvaluatorContainerTests
     {
