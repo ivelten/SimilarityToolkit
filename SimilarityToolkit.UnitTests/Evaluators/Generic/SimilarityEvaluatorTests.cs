@@ -5,13 +5,66 @@ using SimilarityToolkit.Evaluators.Generic;
 using SimilarityToolkit.Evaluators.UnitTests.Fixtures;
 using SimilarityToolkit.Evaluators.UnitTests.Helpers;
 using SimilarityToolkit.Evaluators.UnitTests.Helpers.Evaluables;
+using SimilarityToolkit.UnitTests.Helpers.Evaluables;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Xunit;
 
 namespace SimilarityToolkit.UnitTests.Evaluators.Generic
 {
     public class SimilarityEvaluatorTests
     {
+        [Fact]
+        public void SimilarityEvaluator_Constructor_Should_Guard_Its_Clause()
+        {
+            Assert.Throws<ArgumentNullException>(() => new SimilarityEvaluator<object>(null));
+        }
+
+        [Theory, AutoNSubstituteData]
+        public void Should_Evaluate_Differenct_Between_Two_Nested_Objects_01(
+            SimilarityEvaluator<NestedEvaluable> evaluator)
+        {
+            var item1 = NestedEvaluable.Sample1;
+            var item2 = NestedEvaluable.Sample1;
+
+            evaluator.EvaluateDistance(item1, item2).Should().Be(0);
+        }
+
+        [Theory, AutoNSubstituteData]
+        public void Should_Evaluate_Differenct_Between_Two_Nested_Objects_02(
+            SimilarityEvaluator<NestedEvaluable> evaluator)
+        {
+            var item1 = NestedEvaluable.Sample1;
+            var item2 = NestedEvaluable.Sample2;
+
+            evaluator.EvaluateDistance(item1, item2).Should().Be(3);
+        }
+
+        [Theory, AutoNSubstituteData]
+        public void Should_Evaluate_Differenct_Between_Two_Nested_Objects_03(
+            SimilarityEvaluator<NestedEvaluable> evaluator)
+        {
+            var item1 = NestedEvaluable.Sample2;
+            var item2 = NestedEvaluable.Sample1;
+
+            evaluator.EvaluateDistance(item1, item2).Should().Be(3);
+        }
+
+        [Theory, AutoNSubstituteData]
+        public void Should_Throw_Exeception_With_Non_Generic_Enumerable(
+            SimilarityEvaluator<EnumerableEvaluable> evaluator)
+        {
+            var item1 = new EnumerableEvaluable();
+            var item2 = new EnumerableEvaluable();
+
+            var exception = Assert.Throws<Exception>(() => evaluator.EvaluateDistance(item1, item2));
+
+            exception.Message.Should().Be($"Type {typeof(IEnumerable)} implements {typeof(IEnumerable)}, " +
+                $"but it does not implement {typeof(IEnumerable<>)}." +
+                    "Evaluation of non-generic enumerable is not possible.");
+        }
+
         [Theory, AutoNSubstituteData]
         public void Should_Evaluate_Difference_Between_Two_Objects(
             PrimitiveEvaluable item1,
@@ -63,70 +116,70 @@ namespace SimilarityToolkit.UnitTests.Evaluators.Generic
 
         [Theory, AutoNSubstituteData]
         public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_01(
-            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+            SimilarityEvaluator<ListEvaluable> evaluator)
         {
-            var item1 = PrimitiveListEvaluable.Sample1;
-            var item2 = PrimitiveListEvaluable.Sample2;
+            var item1 = ListEvaluable.Sample1;
+            var item2 = ListEvaluable.Sample2;
 
             evaluator.EvaluateDistance(item1, item2).Should().Be(5);
         }
 
         [Theory, AutoNSubstituteData]
         public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_02(
-            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+            SimilarityEvaluator<ListEvaluable> evaluator)
         {
-            var item1 = PrimitiveListEvaluable.Sample2;
-            var item2 = PrimitiveListEvaluable.Sample1;
+            var item1 = ListEvaluable.Sample2;
+            var item2 = ListEvaluable.Sample1;
 
             evaluator.EvaluateDistance(item1, item2).Should().Be(5);
         }
 
         [Theory, AutoNSubstituteData]
         public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_03(
-            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+            SimilarityEvaluator<ListEvaluable> evaluator)
         {
-            var item1 = PrimitiveListEvaluable.Sample1;
-            var item2 = PrimitiveListEvaluable.Sample4;
+            var item1 = ListEvaluable.Sample1;
+            var item2 = ListEvaluable.Sample4;
 
             evaluator.EvaluateDistance(item1, item2).Should().Be(11);
         }
 
         [Theory, AutoNSubstituteData]
         public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_04(
-            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+            SimilarityEvaluator<ListEvaluable> evaluator)
         {
-            var item1 = PrimitiveListEvaluable.Sample4;
-            var item2 = PrimitiveListEvaluable.Sample1;
+            var item1 = ListEvaluable.Sample4;
+            var item2 = ListEvaluable.Sample1;
 
             evaluator.EvaluateDistance(item1, item2).Should().Be(11);
         }
 
         [Theory, AutoNSubstituteData]
         public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_05(
-            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+            SimilarityEvaluator<ListEvaluable> evaluator)
         {
-            var item1 = PrimitiveListEvaluable.Sample4;
-            var item2 = PrimitiveListEvaluable.Sample4;
+            var item1 = ListEvaluable.Sample4;
+            var item2 = ListEvaluable.Sample4;
 
             evaluator.EvaluateDistance(item1, item2).Should().Be(0);
         }
 
         [Theory, AutoNSubstituteData]
         public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_06(
-            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+            SimilarityEvaluator<ListEvaluable> evaluator)
         {
-            var item1 = PrimitiveListEvaluable.Sample1;
-            var item2 = PrimitiveListEvaluable.Sample3;
+            var item1 = ListEvaluable.Sample1;
+            var item2 = ListEvaluable.Sample3;
 
             evaluator.EvaluateDistance(item1, item2).Should().Be(4);
         }
 
         [Theory, AutoNSubstituteData]
         public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_07(
-            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+            SimilarityEvaluator<ListEvaluable> evaluator)
         {
-            var item1 = PrimitiveListEvaluable.Sample3;
-            var item2 = PrimitiveListEvaluable.Sample1;
+            var item1 = ListEvaluable.Sample3;
+            var item2 = ListEvaluable.Sample1;
 
             evaluator.EvaluateDistance(item1, item2).Should().Be(4);
         }

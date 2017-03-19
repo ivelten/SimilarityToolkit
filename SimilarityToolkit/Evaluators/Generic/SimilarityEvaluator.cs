@@ -60,14 +60,22 @@ namespace SimilarityToolkit.Evaluators.Generic
 
         public override decimal EvaluateDistance(T item1, T item2)
         {
+            if (item1 == null && item2 == null)
+                return 0m;
+
+            var defaultInstance = Activator.CreateInstance<T>();
+            var item1Defaulted = item1 != null ? item1 : defaultInstance;
+            var item2Defaulted = item2 != null ? item2 : defaultInstance;
+
             var distances = new List<decimal>();
             var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
             foreach (var property in properties)
             {
                 var evaluator = GetInnerEvaluatorForType(property.PropertyType);
-                var value1 = property.GetValue(item1);
-                var value2 = property.GetValue(item2);
+                
+                var value1 = property.GetValue(item1Defaulted);
+                var value2 = property.GetValue(item2Defaulted);
 
                 distances.Add(evaluator.EvaluateDistance(value1, value2));
             }
