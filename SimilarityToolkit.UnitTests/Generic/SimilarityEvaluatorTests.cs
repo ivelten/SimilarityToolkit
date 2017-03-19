@@ -57,7 +57,7 @@ namespace SimilarityToolkit.Evaluators.UnitTests.Generic
         {
             var exception = Assert.Throws<Exception>(() => evaluator.EvaluateDistance(item1, item2));
 
-            exception.Message.Should().Be($"No inner evaluator was found for type System.Object.");
+            exception.Message.Should().Be("No inner evaluator was found for type System.Object.");
         }
 
         [Theory, AutoNSubstituteData]
