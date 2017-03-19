@@ -3,7 +3,6 @@ using SimilarityToolkit.Evaluators;
 using SimilarityToolkit.Evaluators.Abstractions;
 using SimilarityToolkit.Evaluators.Generic;
 using SimilarityToolkit.Evaluators.UnitTests.Fixtures;
-using SimilarityToolkit.Evaluators.UnitTests.Helpers;
 using SimilarityToolkit.Evaluators.UnitTests.Helpers.Evaluables;
 using SimilarityToolkit.UnitTests.Helpers.Evaluables;
 using System;
@@ -66,41 +65,33 @@ namespace SimilarityToolkit.UnitTests.Evaluators.Generic
         }
 
         [Theory, AutoNSubstituteData]
-        public void Should_Evaluate_Difference_Between_Two_Objects(
-            PrimitiveEvaluable item1,
-            PrimitiveEvaluable item2,
+        public void Should_Evaluate_Distance_Between_Two_Objects_01(
             SimilarityEvaluator<PrimitiveEvaluable> evaluator)
         {
-            var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
-            var actualDistance = evaluator.EvaluateDistance(item1, item2);
+            var item1 = PrimitiveEvaluable.Sample1;
+            var item2 = PrimitiveEvaluable.Sample1;
 
-            actualDistance.Should().Be(expectedDistance);
+            evaluator.EvaluateDistance(item1, item2).Should().Be(0);
         }
 
         [Theory, AutoNSubstituteData]
-        public void Should_Evaluate_Difference_Between_Two_Objects_When_Left_One_Has_Null_Values(
-            PrimitiveEvaluable item2,
+        public void Should_Evaluate_Distance_Between_Two_Objects_02(
             SimilarityEvaluator<PrimitiveEvaluable> evaluator)
         {
-            var item1 = new PrimitiveEvaluable();
+            var item1 = PrimitiveEvaluable.Sample1;
+            var item2 = PrimitiveEvaluable.Sample2;
 
-            var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
-            var actualDistance = evaluator.EvaluateDistance(item1, item2);
-
-            actualDistance.Should().Be(expectedDistance);
+            evaluator.EvaluateDistance(item1, item2).Should().Be(63646799623.253987m);
         }
 
         [Theory, AutoNSubstituteData]
-        public void Should_Evaluate_Difference_Between_Two_Objects_When_Right_One_Has_Null_Values(
-            PrimitiveEvaluable item1,
+        public void Should_Evaluate_Distance_Between_Two_Objects_03(
             SimilarityEvaluator<PrimitiveEvaluable> evaluator)
         {
-            var item2 = new PrimitiveEvaluable();
+            var item1 = PrimitiveEvaluable.Sample2;
+            var item2 = PrimitiveEvaluable.Sample1;
 
-            var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
-            var actualDistance = evaluator.EvaluateDistance(item1, item2);
-
-            actualDistance.Should().Be(expectedDistance);
+            evaluator.EvaluateDistance(item1, item2).Should().Be(63646799623.253987m);
         }
 
         [Theory, AutoNSubstituteData]

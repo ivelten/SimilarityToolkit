@@ -100,7 +100,6 @@
     <Compile Include="Helpers\Evaluables\NestedEvaluable.cs" />
     <Compile Include="Helpers\Evaluables\EnumerableEvaluable.cs" />
     <Compile Include="SimilarityEvaluatorContainerTests.cs" />
-    <Compile Include="Helpers\DistanceEvaluationHelper.cs" />
     <Compile Include="Helpers\Evaluables\ListEvaluable.cs" />
     <Compile Include="Helpers\Evaluables\UnknownTypeEvaluable.cs" />
     <Compile Include="Evaluators\Int32SimilarityEvaluatorTests.cs" />
