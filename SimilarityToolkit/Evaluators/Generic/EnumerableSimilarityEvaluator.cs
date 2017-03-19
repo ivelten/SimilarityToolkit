@@ -18,8 +18,13 @@ namespace SimilarityToolkit.Evaluators.Generic
         }
 
         public EnumerableSimilarityEvaluator()
-            : this(SimilarityEvaluatorContainer.GetPrimitiveEvaluator<T>())
         {
+            var innerEvaluator = SimilarityEvaluatorContainer.GetPrimitiveEvaluator<T>();
+
+            if (innerEvaluator == null)
+                innerEvaluator = new SimilarityEvaluator<T>();
+
+            this.innerEvaluator = innerEvaluator;
         }
 
         public SimilarityEvaluatorBase<T> InnerEvaluator => innerEvaluator;
