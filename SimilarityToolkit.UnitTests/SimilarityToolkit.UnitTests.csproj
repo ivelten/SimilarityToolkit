@@ -88,7 +88,7 @@
     <Compile Include="DateTimeSimilarityEvaluatorTests.cs" />
     <Compile Include="DecimalSimilarityEvaluatorTests.cs" />
     <Compile Include="DoubleSimilarityEvaluatorTests.cs" />
-    <Compile Include="EvaluatorContainerTests.cs" />
+    <Compile Include="SimilarityEvaluatorContainerTests.cs" />
     <Compile Include="Helpers\DistanceEvaluationHelper.cs" />
     <Compile Include="Helpers\Evaluables\PrimitiveEnumerableEvaluable.cs" />
     <Compile Include="Helpers\Evaluables\UnknownTypeEvaluable.cs" />
