@@ -45,7 +45,7 @@ namespace SimilarityToolkit.SampleApi.Repository
                 Specifications = new List<SpecificationModel>
                 {
                     new SpecificationModel { Name = "Cor", Value = "Vermelho" },
-                    new SpecificationModel { Name = "Tamanho", Value = "M" }
+                    new SpecificationModel { Name = "Tamanho", Value = "G" }
                 }
             }
         };
