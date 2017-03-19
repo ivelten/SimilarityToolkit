@@ -14,6 +14,9 @@ namespace SimilarityToolkit.Evaluators.Generic
 
         public SimilarityEvaluator(IEnumerable<SimilarityEvaluatorBase> innerEvaluators)
         {
+            if (innerEvaluators == null)
+                throw new ArgumentNullException(nameof(innerEvaluators));
+
             AddInnerEvaluators(innerEvaluators);
         }
 
