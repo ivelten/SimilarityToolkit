@@ -3,7 +3,7 @@ using SimilarityToolkit.Evaluators.UnitTests.Fixtures;
 using System;
 using Xunit;
 
-namespace SimilarityToolkit.Evaluators.UnitTests
+namespace SimilarityToolkit.UnitTests.Evaluators
 {
     public class NullableDateTimeSimilarityEvaluatorTests
     {

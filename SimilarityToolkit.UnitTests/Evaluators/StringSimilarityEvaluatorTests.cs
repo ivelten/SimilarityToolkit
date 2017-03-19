@@ -2,7 +2,7 @@
 using SimilarityToolkit.Evaluators.UnitTests.Fixtures;
 using Xunit;
 
-namespace SimilarityToolkit.Evaluators.UnitTests
+namespace SimilarityToolkit.UnitTests.Evaluators
 {
     public class StringSimilarityEvaluatorTests
     {

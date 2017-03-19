@@ -105,7 +105,7 @@
     <Compile Include="Evaluators\NullableInt32SimilarityEvaluatorTests.cs" />
     <Compile Include="Evaluators\NullableInt64SimilarityEvaluatorTests.cs" />
     <Compile Include="Evaluators\NullableSingleSimilarityEvaluatorTests.cs" />
-    <Compile Include="Generic\SimilarityEvaluatorTests.cs" />
+    <Compile Include="Evaluators\Generic\SimilarityEvaluatorTests.cs" />
     <Compile Include="Evaluators\Int16SimilarityEvaluatorTests.cs" />
     <Compile Include="Evaluators\SingleSimilarityEvaluatorTests.cs" />
     <Compile Include="Evaluators\StringSimilarityEvaluatorTests.cs" />
