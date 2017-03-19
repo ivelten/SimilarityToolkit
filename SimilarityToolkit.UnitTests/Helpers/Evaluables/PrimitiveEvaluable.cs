@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace SimilarityToolkit.Evaluators.UnitTests.Helpers
+namespace SimilarityToolkit.Evaluators.UnitTests.Helpers.Evaluables
 {
-    public class PrimitiveEvaluableObject
+    public class PrimitiveEvaluable
     {
         public string StringProperty { get; set; }
 

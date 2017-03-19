@@ -7,8 +7,8 @@
     <ProjectGuid>{9CA0629B-43CF-4DC2-88EE-896C529D060F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimilarityToolkit.Evaluators</RootNamespace>
-    <AssemblyName>SimilarityToolkit.Evaluators</AssemblyName>
+    <RootNamespace>SimilarityToolkit</RootNamespace>
+    <AssemblyName>SimilarityToolkit</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -42,31 +42,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstractions\Generic\SimilarityEvaluatorBase.cs" />
-    <Compile Include="ByteSimilarityEvaluator.cs" />
-    <Compile Include="DateTimeSimilarityEvaluator.cs" />
-    <Compile Include="DecimalSimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\ByteSimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\DateTimeSimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\DecimalSimilarityEvaluator.cs" />
     <Compile Include="Abstractions\SimilarityEvaluatorBase.cs" />
-    <Compile Include="SimilarityEvaluationResult.cs" />
-    <Compile Include="DoubleSimilarityEvaluator.cs" />
-    <Compile Include="Generic\EnumerableSimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\DoubleSimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\Generic\EnumerableSimilarityEvaluator.cs" />
     <Compile Include="SimilarityEvaluatorContainer.cs" />
-    <Compile Include="Int16SimilarityEvaluator.cs" />
-    <Compile Include="Int32SimilarityEvaluator.cs" />
-    <Compile Include="Int64SimilarityEvaluator.cs" />
-    <Compile Include="NullableByteSimilarityEvaluator.cs" />
-    <Compile Include="NullableDateTimeSimilarityEvaluator.cs" />
-    <Compile Include="NullableDecimalSimilarityEvaluator.cs" />
-    <Compile Include="NullableDoubleSimilarityEvaluator.cs" />
-    <Compile Include="NullableInt16SimilarityEvaluator.cs" />
-    <Compile Include="NullableInt32SimilarityEvaluator.cs" />
-    <Compile Include="NullableInt64SimilarityEvaluator.cs" />
-    <Compile Include="NullableSingleSimilarityEvaluator.cs" />
-    <Compile Include="Generic\SimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\Int16SimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\Int32SimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\Int64SimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\NullableByteSimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\NullableDateTimeSimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\NullableDecimalSimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\NullableDoubleSimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\NullableInt16SimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\NullableInt32SimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\NullableInt64SimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\NullableSingleSimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\Generic\SimilarityEvaluator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimilarityEvaluatorDictionary.cs" />
-    <Compile Include="SingleSimilarityEvaluator.cs" />
-    <Compile Include="StringSimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\SingleSimilarityEvaluator.cs" />
+    <Compile Include="Evaluators\StringSimilarityEvaluator.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

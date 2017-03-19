@@ -1,8 +1,9 @@
-﻿using SimilarityToolkit.Evaluators.Abstractions;
+﻿using SimilarityToolkit.Evaluators;
+using SimilarityToolkit.Evaluators.Abstractions;
 using SimilarityToolkit.Evaluators.Abstractions.Generic;
 using System.Collections.Generic;
 
-namespace SimilarityToolkit.Evaluators
+namespace SimilarityToolkit
 {
     public static class SimilarityEvaluatorContainer
     {

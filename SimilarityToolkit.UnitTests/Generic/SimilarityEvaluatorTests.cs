@@ -3,6 +3,7 @@ using SimilarityToolkit.Evaluators.Abstractions;
 using SimilarityToolkit.Evaluators.Generic;
 using SimilarityToolkit.Evaluators.UnitTests.Fixtures;
 using SimilarityToolkit.Evaluators.UnitTests.Helpers;
+using SimilarityToolkit.Evaluators.UnitTests.Helpers.Evaluables;
 using System;
 using Xunit;
 
@@ -12,9 +13,9 @@ namespace SimilarityToolkit.Evaluators.UnitTests.Generic
     {
         [Theory, AutoNSubstituteData]
         public void Should_Evaluate_Difference_Between_Two_Objects(
-            PrimitiveEvaluableObject item1,
-            PrimitiveEvaluableObject item2,
-            SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
+            PrimitiveEvaluable item1,
+            PrimitiveEvaluable item2,
+            SimilarityEvaluator<PrimitiveEvaluable> evaluator)
         {
             var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
             var actualDistance = evaluator.EvaluateDistance(item1, item2);
@@ -24,10 +25,10 @@ namespace SimilarityToolkit.Evaluators.UnitTests.Generic
 
         [Theory, AutoNSubstituteData]
         public void Should_Evaluate_Difference_Between_Two_Objects_When_Left_One_Has_Null_Values(
-            PrimitiveEvaluableObject item2,
-            SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
+            PrimitiveEvaluable item2,
+            SimilarityEvaluator<PrimitiveEvaluable> evaluator)
         {
-            var item1 = new PrimitiveEvaluableObject();
+            var item1 = new PrimitiveEvaluable();
 
             var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
             var actualDistance = evaluator.EvaluateDistance(item1, item2);
@@ -37,10 +38,10 @@ namespace SimilarityToolkit.Evaluators.UnitTests.Generic
 
         [Theory, AutoNSubstituteData]
         public void Should_Evaluate_Difference_Between_Two_Objects_When_Right_One_Has_Null_Values(
-            PrimitiveEvaluableObject item1,
-            SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
+            PrimitiveEvaluable item1,
+            SimilarityEvaluator<PrimitiveEvaluable> evaluator)
         {
-            var item2 = new PrimitiveEvaluableObject();
+            var item2 = new PrimitiveEvaluable();
 
             var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
             var actualDistance = evaluator.EvaluateDistance(item1, item2);
@@ -50,9 +51,9 @@ namespace SimilarityToolkit.Evaluators.UnitTests.Generic
 
         [Theory, AutoNSubstituteData]
         public void When_Evaluating_Object_With_Unknown_Type_Should_Throw_Exception(
-            UnknownTypeEvaluableObject item1,
-            UnknownTypeEvaluableObject item2,
-            SimilarityEvaluator<UnknownTypeEvaluableObject> evaluator)
+            UnknownTypeEvaluable item1,
+            UnknownTypeEvaluable item2,
+            SimilarityEvaluator<UnknownTypeEvaluable> evaluator)
         {
             var exception = Assert.Throws<Exception>(() => evaluator.EvaluateDistance(item1, item2));
 
@@ -61,9 +62,9 @@ namespace SimilarityToolkit.Evaluators.UnitTests.Generic
 
         [Theory, AutoNSubstituteData]
         public void When_Evaluating_Object_With_Enumerables_Should_Calculate_Distance(
-            PrimitiveEnumerableEvaluableObject item1,
-            PrimitiveEnumerableEvaluableObject item2,
-            SimilarityEvaluator<PrimitiveEnumerableEvaluableObject> evaluator)
+            PrimitiveEnumerableEvaluable item1,
+            PrimitiveEnumerableEvaluable item2,
+            SimilarityEvaluator<PrimitiveEnumerableEvaluable> evaluator)
         {
             var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
             var actualDistance = evaluator.EvaluateDistance(item1, item2);
@@ -73,14 +74,14 @@ namespace SimilarityToolkit.Evaluators.UnitTests.Generic
 
         [Theory, AutoNSubstituteData]
         public void Should_Have_Primitive_Evaluators_When_Created(
-            SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
+            SimilarityEvaluator<PrimitiveEvaluable> evaluator)
         {
             evaluator.InnerEvaluators.ShouldBeEquivalentTo(SimilarityEvaluatorContainer.PrimitiveEvaluators);
         }
 
         [Theory, AutoNSubstituteData]
         public void Should_Override_Already_Added_InnerEvaluator(
-            SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
+            SimilarityEvaluator<PrimitiveEvaluable> evaluator)
         {
             var innerEvaluator = new Int32SimilarityEvaluator();
 
@@ -91,7 +92,7 @@ namespace SimilarityToolkit.Evaluators.UnitTests.Generic
 
         [Theory, AutoNSubstituteData]
         public void Should_Override_Already_Added_InnerEvaluators(
-            SimilarityEvaluator<PrimitiveEvaluableObject> evaluator)
+            SimilarityEvaluator<PrimitiveEvaluable> evaluator)
         {
             var innerEvaluators = new SimilarityEvaluatorBase[]
             {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace SimilarityToolkit.Evaluators.UnitTests.Helpers
+namespace SimilarityToolkit.Evaluators.UnitTests.Helpers.Evaluables
 {
-    public class PrimitiveEnumerableEvaluableObject
+    public class PrimitiveEnumerableEvaluable
     {
         public List<string> StringList { get; set; }
 

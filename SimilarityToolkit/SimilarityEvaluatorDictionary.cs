@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace SimilarityToolkit.Evaluators
+namespace SimilarityToolkit
 {
     public class SimilarityEvaluatorDictionary : ReadOnlyDictionary<Type, SimilarityEvaluatorBase>
     {
