@@ -42,12 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstractions\Generic\SimilarityEvaluatorBase.cs" />
+    <Compile Include="EvaluationSet.cs" />
     <Compile Include="Evaluators\ByteSimilarityEvaluator.cs" />
     <Compile Include="Evaluators\DateTimeSimilarityEvaluator.cs" />
     <Compile Include="Evaluators\DecimalSimilarityEvaluator.cs" />
     <Compile Include="Abstractions\SimilarityEvaluatorBase.cs" />
     <Compile Include="Evaluators\DoubleSimilarityEvaluator.cs" />
     <Compile Include="Evaluators\Generic\EnumerableSimilarityEvaluator.cs" />
+    <Compile Include="ReferenceWrapper.cs" />
     <Compile Include="SimilarityEvaluatorContainer.cs" />
     <Compile Include="Evaluators\Int16SimilarityEvaluator.cs" />
     <Compile Include="Evaluators\Int32SimilarityEvaluator.cs" />

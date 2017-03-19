@@ -90,7 +90,7 @@
     <Compile Include="DoubleSimilarityEvaluatorTests.cs" />
     <Compile Include="SimilarityEvaluatorContainerTests.cs" />
     <Compile Include="Helpers\DistanceEvaluationHelper.cs" />
-    <Compile Include="Helpers\Evaluables\PrimitiveEnumerableEvaluable.cs" />
+    <Compile Include="Helpers\Evaluables\PrimitiveListEvaluable.cs" />
     <Compile Include="Helpers\Evaluables\UnknownTypeEvaluable.cs" />
     <Compile Include="Int32SimilarityEvaluatorTests.cs" />
     <Compile Include="Int64SimilarityEvaluatorTests.cs" />

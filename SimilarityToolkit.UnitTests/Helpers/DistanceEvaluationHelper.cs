@@ -33,7 +33,7 @@ namespace SimilarityToolkit.Evaluators.UnitTests.Helpers
             return distances.Sum();
         }
 
-        internal static decimal EvaluateDistance(PrimitiveEnumerableEvaluable item1, PrimitiveEnumerableEvaluable item2)
+        internal static decimal EvaluateDistance(PrimitiveListEvaluable item1, PrimitiveListEvaluable item2)
         {
             var distances = new List<decimal>();
 

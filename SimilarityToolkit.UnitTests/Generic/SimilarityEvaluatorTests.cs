@@ -61,15 +61,73 @@ namespace SimilarityToolkit.Evaluators.UnitTests.Generic
         }
 
         [Theory, AutoNSubstituteData]
-        public void When_Evaluating_Object_With_Enumerables_Should_Calculate_Distance(
-            PrimitiveEnumerableEvaluable item1,
-            PrimitiveEnumerableEvaluable item2,
-            SimilarityEvaluator<PrimitiveEnumerableEvaluable> evaluator)
+        public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_01(
+            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
         {
-            var expectedDistance = DistanceEvaluationHelper.EvaluateDistance(item1, item2);
-            var actualDistance = evaluator.EvaluateDistance(item1, item2);
+            var item1 = PrimitiveListEvaluable.Sample1;
+            var item2 = PrimitiveListEvaluable.Sample2;
 
-            actualDistance.Should().Be(expectedDistance);
+            evaluator.EvaluateDistance(item1, item2).Should().Be(5);
+        }
+
+        [Theory, AutoNSubstituteData]
+        public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_02(
+            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+        {
+            var item1 = PrimitiveListEvaluable.Sample2;
+            var item2 = PrimitiveListEvaluable.Sample1;
+
+            evaluator.EvaluateDistance(item1, item2).Should().Be(5);
+        }
+
+        [Theory, AutoNSubstituteData]
+        public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_03(
+            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+        {
+            var item1 = PrimitiveListEvaluable.Sample1;
+            var item2 = PrimitiveListEvaluable.Sample4;
+
+            evaluator.EvaluateDistance(item1, item2).Should().Be(11);
+        }
+
+        [Theory, AutoNSubstituteData]
+        public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_04(
+            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+        {
+            var item1 = PrimitiveListEvaluable.Sample4;
+            var item2 = PrimitiveListEvaluable.Sample1;
+
+            evaluator.EvaluateDistance(item1, item2).Should().Be(11);
+        }
+
+        [Theory, AutoNSubstituteData]
+        public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_05(
+            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+        {
+            var item1 = PrimitiveListEvaluable.Sample4;
+            var item2 = PrimitiveListEvaluable.Sample4;
+
+            evaluator.EvaluateDistance(item1, item2).Should().Be(0);
+        }
+
+        [Theory, AutoNSubstituteData]
+        public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_06(
+            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+        {
+            var item1 = PrimitiveListEvaluable.Sample1;
+            var item2 = PrimitiveListEvaluable.Sample3;
+
+            evaluator.EvaluateDistance(item1, item2).Should().Be(4);
+        }
+
+        [Theory, AutoNSubstituteData]
+        public void When_Evaluating_Two_Objects_With_List_Should_Calculate_Distance_07(
+            SimilarityEvaluator<PrimitiveListEvaluable> evaluator)
+        {
+            var item1 = PrimitiveListEvaluable.Sample3;
+            var item2 = PrimitiveListEvaluable.Sample1;
+
+            evaluator.EvaluateDistance(item1, item2).Should().Be(4);
         }
 
         [Theory, AutoNSubstituteData]
