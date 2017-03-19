@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using SimilarityToolkit.Evaluators;
 using SimilarityToolkit.Evaluators.UnitTests.Fixtures;
 using System;
 using Xunit;
